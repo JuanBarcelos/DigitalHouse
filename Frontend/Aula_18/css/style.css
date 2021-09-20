@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Girassol&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+
+    font-family: 'Girassol', cursive;
+}
+
+body{
+
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    grid-template-areas: 
+       "header header"
+       "aside main"
+       "footer footer" ;
+}
+
+header{
+    background-color: #B1AEB3;
+    grid-area: header;
+
+   text-align:center;
+
+    height: 15vh;
+}
+
+aside{
+    background-color: #DCDEDC;
+    grid-area: aside;
+}
+ul{
+    text-align: center;
+    list-style: none;
+    font-size: 2rem;
+    padding-top: 2rem;
+
+}
+main{
+    background-color: #D2D7D1;
+    grid-area: main;
+    height: 75vh;
+
+    text-align: center;
+
+}
+img{
+    width: 800px;
+}
+footer{
+    background-color: #B1AEB3;
+    grid-area: footer;
+
+    height: 10vh;
+
+    text-align:center;
+}
+div {
+    margin-top: 2rem 
+}
