@@ -1,5 +1,4 @@
-export default class CreateAluno {
-    constructor(name, absent, notes) {
+function CreateAluno (name, absent, notes) {
         this.name = name,
         this.absent = absent,
         this.notes = notes;
@@ -16,7 +15,6 @@ export default class CreateAluno {
         this.countAbsents = function () {
             return this.absent += 1;
         };
-    }
 }
 
 
@@ -26,4 +24,10 @@ const aluno3 = new CreateAluno("Pati", 3, [10, 6, 9, 7]);
 const aluno4 = new CreateAluno("Lucas", 2, [1, 2, 5, 8]);
 const aluno5 = new CreateAluno("Dom", 1, [10, 7, 9, 8]);
 
-export const alunos = [aluno1, aluno2, aluno3, aluno4, aluno5];
+const alunos = [aluno1, aluno2, aluno3, aluno4, aluno5];
+
+
+module.exports = {
+    construtor : CreateAluno,
+    listarAlunos: alunos
+}

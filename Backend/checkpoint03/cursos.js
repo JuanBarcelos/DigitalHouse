@@ -1,29 +1,26 @@
-import createAluno from './modules/alunos.js';
-import {alunos} from './modules/alunos.js';
+const createAluno = require('./modules/alunos.js');
 
-
-class CreateCursos {
-    constructor(name, mediaFinal, faltasLimits) {
+function CreateCursos (name, mediaFinal, faltasLimits) {
         this.name = name,
             this.mediaFinal = mediaFinal,
             this.faltasLimits = faltasLimits,
-            this.listaDeAlunos = alunos
+            this.listaDeAlunos = createAluno.listarAlunos;
 
-        this.createAluno = function (estudades) {
+        this.adicionarAluno = function (estudades) {
             this.listaDeAlunos.push(estudades);
         };
 
         this.aprovacao = function (estudante) {
             if (estudante.finalMedia() >= this.mediaFinal && estudante.absent < this.faltasLimits) {
-                return `Aprovado`;
+                return true;
             } else if (estudante.absent == this.faltasLimits) {
                 let porcentagem = 10 * this.mediaFinal / 100;
                 porcentagem += this.mediaFinal
                 if (estudante.finalMedia() > porcentagem) {
-                    return `Aprovado`;
+                    return true;
                 }
             } else {
-                return `Reprovado`;
+                return false;
             }
         };
 
@@ -37,6 +34,8 @@ class CreateCursos {
             return listaDeAprovacao;
         }
     }
-}
+
 
 const java = new CreateCursos('Java', 7, 3);
+
+console.log(java.listaDeAlunos);
